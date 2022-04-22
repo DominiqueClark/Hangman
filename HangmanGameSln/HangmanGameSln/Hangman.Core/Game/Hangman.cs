@@ -83,14 +83,12 @@ namespace Hangman.Core.Game
 
                 Console.WriteLine(_myProgress);
 
-
-                if (contenderguess == myProgressArray[i])
+                if (!accurate)
                 {
-                    Console.WriteLine($"You have survived");
+                    _myLives--;
 
+                    _renderer.Render(5, 5, _myLives);
                 }
-
-
                 
 
                
@@ -107,8 +105,8 @@ namespace Hangman.Core.Game
 
             if (_myLives == 0)
             {
-                Console.WriteLine($"You just died  {_myLives} left");
-
+                Console.WriteLine($"You just died{_myLives} left");
+                Console.WriteLine($"Correct word:" + Wordlist);
             }
             
 
